@@ -28,7 +28,7 @@ def main(input_filename):
     words_stat = words_df.groupby(by=['word'])['word'].agg({'number' : np.size})
     words_stat = words_stat.reset_index().sort_values(by="number",ascending=False)
 
-    print '# of different words =', len(words_stat)
+    print ('# of different words =', len(words_stat))
 
     input_prefix = input_filename
     if input_filename.find('.') != -1:
@@ -50,14 +50,14 @@ def main(input_filename):
 
             output_filename = prefix + '_' + input_prefix + '.png'
 
-            print 'Saving', output_filename
+            print ('Saving', output_filename)
             wordcloud.to_file(output_filename)
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
         main(sys.argv[1])
     else:
-        print '[usage] <input>'
+        print ('[usage] <input>')
 
 
 
